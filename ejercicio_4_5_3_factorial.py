@@ -42,3 +42,5 @@ def fac_rec(number):
 print("Con recursividad:")
 for i in range(6):
     print(i, fac_rec(i))
+
+""" prueba"""
