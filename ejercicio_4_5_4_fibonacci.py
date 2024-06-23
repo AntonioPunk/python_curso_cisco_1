@@ -51,7 +51,7 @@ for n in range(0, 10):
 
 def fibo_rec(num):
     """ Calculamos Fibonacci hasta 'num' CON recursividad. """
-    if num == 0:
+    if num == 0:    # Caso base
         return 0
     if num < 3:
         return 1

@@ -34,8 +34,8 @@ for i in range(6):
 
 
 def fac_rec(number):
-    """ Calculamos el factirial de 'number' con recursividad: n!=n(n-1)! """
-    if number < 2:
+    """ Calculamos el factorial de 'number' con recursividad: n!=n(n-1)! """
+    if number < 2:  # Caso base
         return 1
     return number * (fac_rec(number - 1))
 
