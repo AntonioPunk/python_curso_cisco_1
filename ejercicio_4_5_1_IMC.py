@@ -1,4 +1,4 @@
-# Cálculo del Índice de Masa Corporal.
+# Cálculo del Índice de Masa Corporal. Prueba.
 
 def inch_to_m(inch):
     return inch * 0.0254
