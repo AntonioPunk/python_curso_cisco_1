@@ -1,7 +1,6 @@
 from random import randrange
 
-
-def print_board(board):
+def display_board(board):
     board_deco = [["+-------+-------+-------+"],
             ["|       |       |       |"],
             ["|  ",str(board[0][0]),"  |  ",str(board[0][1]),"  |  ",str(board[0][2]),"  |"],
@@ -58,9 +57,9 @@ def victory_for(board, sign):
             return who
         if board[0][i] == sign and board[1][i] == sign and board[2][i] == sign: # Comprobamos columnas.
             return who
-        if board[i][i] != sign:     # Comprobamos diagonal (0, 0) a (2, 2)
+        if board[i][i] != sign:     # Comprobamos diagonal: (0, 0), (1, 1), (2, 2)
             cross1 = False
-        if board[2-i][i] != sign:   # Comprobamos diagonal (2, 0) a (0, 2)
+        if board[2-i][i] != sign:   # Comprobamos diagonal: (2, 0), (1, 1), (0, 2)
             cross2 = False
     if cross1 or cross2:
         return who
@@ -75,29 +74,29 @@ def draw_move(board):
         print("Yo he elegido el número: ", board[row][colm])
         board[row][colm] = "X"
 
-
-
 """ MAIN ------------------------------------------------------------------- """
 
-board = [[1, 2, 3], [4, "X", 6,], [7, 8, 9]]
-cont = 0
+board = [[1, 2, 3], [4, "X", 6,], [7, 8, 9]]            # Creamos el contenido del tablero e iniciamos la posición
+                                                        # central con una 'X'.
+cont = 0                                                # Creamos un contador para saber cuándo se ha
+                                                        # producido un empate. (cont == 5)
 
-print_board(board)
+display_board(board)                                    # Mostramos el tablero de inicio.
 
-while True:
-    cont += 1
+while True:                                             # Bucle principal del programa, salimos de él (break)
+    cont += 1                                           # si se produce una victoria o llegamos al empate.
     if cont == 5:
         print("Empate !!!")
         break   
     list_free_field = make_list_of_free_fields(board)
     enter_move(board)
-    print_board(board)
+    display_board(board)
     if victory_for(board, "O") == "human":
         print("Has ganado !!!")
         break    
     list_free_field = make_list_of_free_fields(board)
     draw_move(board)
-    print_board(board)
+    display_board(board)
     if victory_for(board, "X") == "machine":
         print("Te he ganado, pringao !!!")
         break
